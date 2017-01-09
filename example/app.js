@@ -31,6 +31,7 @@ class NodeViewer extends React.Component {
     constructor(props){
         super(props);
     }
+
     render(){
         const style = styles.viewer;
         let json = JSON.stringify(this.props.node, null, 4);
@@ -45,6 +46,14 @@ class NodeViewer extends React.Component {
 
 NodeViewer.propTypes = {
     node: React.PropTypes.object
+};
+
+const dragAndDrop = {
+    nodeSelector: 'fileNodes',
+    // onMove: (event) => { console.log(event); },
+    onEnd: (event) => {
+        console.log('On End');
+    }
 };
 
 class DemoTree extends React.Component {
@@ -86,9 +95,10 @@ class DemoTree extends React.Component {
                         data={this.state.data}
                         onToggle={this.onToggle}
                         decorators={decorators}
+                        dragAndDrop={dragAndDrop}
                     />
                 </div>
-                <div style={styles.component}>
+                <div style={styles.component} className="dropTarget">
                     <NodeViewer node={this.state.cursor}/>
                 </div>
             </StyleRoot>

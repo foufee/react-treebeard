@@ -73,6 +73,7 @@
   "dependencies": {
     "babel-runtime": "^5.8.29",
     "deep-equal": "^1.0.1",
+    "interact.js": "^1.2.8",
     "radium": "^0.18.0",
     "shallowequal": "^0.2.2",
     "velocity-react": "^1.1.2"
